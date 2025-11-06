@@ -1,0 +1,40 @@
+{% extends 'store/base.html'%}
+
+{%block title %} Contact |{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Contáctanos</h3>
+          </div>
+          <div class="card-body">
+            <form method="POST">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@ejemplo.com">
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+            {% if msg %}
+              <div class="alert alert-info mt-3" role="alert">
+                {{ msg }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
