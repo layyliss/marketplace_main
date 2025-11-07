@@ -20,7 +20,7 @@ def contact(request):
 def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
     print("Item: ", item)
-    related_items = Item.objects.filter(category=item.Category, is_sold=False).exclude(pk=pk)[0:3]
+    related_items = Item.objects.filter(category=item.category, is_sold=False).exclude(pk=pk)[0:3]
 
     context={
         'item': item,
